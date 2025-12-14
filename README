@@ -1,0 +1,19 @@
+The solver is released here to reproduce the numerical results in the manuscript 'A continuum model of wind-driven formation of coastal polynyas' (to appear in Physical Review Research) authored by Lailai Zhu, Bhargav Rallabandi, Michael Winton and Howard A. Stone.
+
+The solver is developed using the open-source FEM library deal.II (version 8.4.1) on Linux Ubuntu 16.04. The GNU compiler version is ``(Ubuntu 5.5.0-12ubuntu1~16.04) 5.5.0 20171010'', and the OpenMPI version is 2.0.1. The versions of dependent libraries are listed in Step 1 (see below). Installing deal.II and its dependencies is nontrivial; for questions, please contact the developer, Lailai Zhu, at lailaizhu00@gmail.com or lailai_zhu@nus.edu.sg
+
+To run the simulations, follow the six steps below. Obviously, installing the dependent libs can be painful.
+
+1. module purge; module add mpi/openmpi2.0.1_gnu parmetis/3.1-openmpi-gnu blas/OpenBlas0.2.19-gnu blacs/gnu4-openmpi scalapack/1.8.0-gnu-openmpi mumps/4.9-openmpi-gnu trilinos/12.12.1-openmpi-gnu-shared lapack/3.8.0-gnu blas/blas3.8.0-gnu-openmpi2.0 p4est/0.3.4-gnu-openmpi dealii/8.4.1-gnu-openmpi-shared
+
+2. cmake -DDEAL_II_DIR=dealII_installtion_dir .
+
+3. Choose simulation scenarios out of two options: 1) a straight coast or 2) a circular island. Enter into dir 'source'. For straight case, do 'ln -sf source.cc_straight source.cc'; the mesh will be generated within the source file. For island case, execute 'ln -sf source.cc_island source.cc'; additionally, in the project dir, execute 'ln -sf mesh/circ_unbound_refine.msh mesh.msh'. Here the mesh for island is generted by the mesh generator, Gmsh. 
+
+4. make, which generates the executable file 'ice_solver'. 
+
+5. modifies parameters in 'input.prm'; execute: ./ice_solver input.prm ; Note, I have provided two example input.prm files in the dir, 'input_parameters': 'input.prm_island' for a circular island, and  'input.prm_straight' for a straight coastline.
+
+6. use Visit or Paraview to postprocess the generated results files in a new directory './data'.
+
+
