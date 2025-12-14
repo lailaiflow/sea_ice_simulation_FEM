@@ -1,4 +1,4 @@
-The solver is released here to reproduce the numerical results in the manuscript 'A continuum model of wind-driven formation of coastal polynyas' (to appear in Physical Review Research) authored by Lailai Zhu, Bhargav Rallabandi, Michael Winton and Howard A. Stone.
+The solver is released here to reproduce the numerical results in the manuscript 'A continuum model of wind-driven formation of coastal polynyas' authored by Lailai Zhu, Bhargav Rallabandi, Michael Winton and Howard A. Stone.
 
 The solver is developed using the open-source FEM library deal.II (version 8.4.1) on Linux Ubuntu 16.04. The GNU compiler version is ``(Ubuntu 5.5.0-12ubuntu1~16.04) 5.5.0 20171010'', and the OpenMPI version is 2.0.1. The versions of dependent libraries are listed in Step 1 (see below). Installing deal.II and its dependencies is nontrivial; for questions, please contact the developer, Lailai Zhu, at lailaizhu00@gmail.com or lailai_zhu@nus.edu.sg
 
